@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RM — Organización y Gestión Integral de Proyectos de Arquitectura</title>
+<meta name="description" content="RM organiza proyectos de arquitectura mediante planificación, documentación técnica y dirección de obra, para reducir la incertidumbre antes y durante la construcción.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#ffffff;
+    --paper:#fafaf8;
+    --ink:#15181a;
+    --gray-600:#5c6166;
+    --gray-400:#9a9d9f;
+    --border:#e6e4de;
+    --accent:#0e4a42;
+    --accent-soft:#e7efec;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{ font-family:'Inter', sans-serif; background:var(--white); color:var(--ink); line-height:1.55; -webkit-font-smoothing:antialiased; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none !important; transition:none !important;} }
+  a{ color:inherit; text-decoration:none; }
+  svg{ display:block; }
+  ul{ list-style:none; }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 28px; }
+  .idx{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.06em;
+    color:var(--accent); margin-bottom:14px; display:block;
+  }
+  h1,h2,h3{ font-weight:700; letter-spacing:-0.02em; }
+  .lede{ color:var(--gray-600); font-size:1.05rem; max-width:56ch; }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:8px;
+    font-weight:600; font-size:0.92rem; border:1px solid transparent; transition:all .15s ease;
+  }
+  .btn-primary{ background:var(--ink); color:var(--white); }
+  .btn-primary:hover{ background:var(--accent); }
+  .btn-secondary{ background:var(--white); color:var(--ink); border-color:var(--border); }
+  .btn-secondary:hover{ border-color:var(--ink); }
+  .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
+  /* HEADER */
+  header{ position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.88); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
+  .logo{ font-weight:800; font-size:1.05rem; letter-spacing:0.02em; }
+  .nav-links{ display:flex; gap:30px; font-size:0.9rem; font-weight:500; color:var(--gray-600); }
+  .nav-links a:hover{ color:var(--ink); }
+  @media (max-width:760px){ .nav-links{ display:none; } }
+
+  /* HERO */
+  .hero{ padding:88px 0 0; text-align:center; }
+  .hero h1{ font-size:clamp(2.3rem, 5vw, 3.6rem); line-height:1.08; max-width:16ch; margin:0 auto 22px; }
+  .hero .lede{ margin:0 auto 34px; }
+  .hero-ctas{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:64px; }
+
+  .schema{
+    border:1px solid var(--border); border-radius:14px; background:var(--paper);
+    max-width:900px; margin:0 auto; overflow:hidden;
+  }
+  .schema svg{ width:100%; height:auto; display:block; }
+  .hero-video{ width:100%; height:auto; aspect-ratio:900/380; object-fit:cover; display:block; }
+
+  /* STRIPE / SECTION SHELL */
+  section{ padding:96px 0; }
+  .section-head{ max-width:620px; margin:0 auto 52px; text-align:center; }
+  .section-head h2{ font-size:clamp(1.7rem,3vw,2.3rem); }
+  .section-head .lede{ margin:14px auto 0; }
+  section.alt{ background:var(--paper); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+
+  /* PROBLEMA */
+  .problem-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:14px; overflow:hidden; }
+  @media (max-width:820px){ .problem-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .problem-grid{ grid-template-columns:1fr; } }
+  .problem-item{ background:var(--white); padding:30px 26px; }
+  .problem-item svg{ margin-bottom:16px; }
+  .problem-item h3{ font-size:1rem; font-weight:600; }
+
+  /* METODO */
+  .method-list{ counter-reset:m; display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--border); border-left:1px solid var(--border); }
+  @media (max-width:820px){ .method-list{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .method-list{ grid-template-columns:1fr; } }
+  .method-item{ padding:30px 28px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .method-num{ font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--accent); display:block; margin-bottom:10px; }
+  .method-item h3{ font-size:1.05rem; margin-bottom:6px; }
+  .method-item p{ color:var(--gray-600); font-size:0.92rem; }
+
+  /* SERVICIOS */
+  .services-list{ border-top:1px solid var(--border); }
+  .service-row{
+    display:grid; grid-template-columns:100px 1fr; gap:28px; padding:30px 0;
+    border-bottom:1px solid var(--border); align-items:baseline;
+  }
+  @media (max-width:600px){ .service-row{ grid-template-columns:1fr; gap:6px; } }
+  .service-code{ font-family:'IBM Plex Mono', monospace; font-size:0.82rem; color:var(--gray-400); }
+  .service-row h3{ font-size:1.15rem; margin-bottom:6px; }
+  .service-row p{ color:var(--gray-600); font-size:0.95rem; max-width:60ch; }
+
+  /* WHY RM */
+  .why-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:34px; }
+  @media (max-width:820px){ .why-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .why-grid{ grid-template-columns:1fr; } }
+  .why-item svg{ margin-bottom:16px; }
+  .why-item h3{ font-size:1.02rem; margin-bottom:6px; }
+  .why-item p{ color:var(--gray-600); font-size:0.9rem; }
+
+  /* FAQ */
+  .faq-wrap{ max-width:760px; margin:0 auto; }
+  details{ border-bottom:1px solid var(--border); padding:22px 4px; }
+  details:first-child{ border-top:1px solid var(--border); }
+  summary{ cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:16px; font-weight:600; font-size:1.02rem; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::after{ content:"+"; font-family:'IBM Plex Mono', monospace; color:var(--accent); font-size:1.2rem; flex-shrink:0; transition:transform .18s ease; }
+  details[open] summary::after{ transform:rotate(45deg); }
+  details p{ margin-top:14px; color:var(--gray-600); font-size:0.95rem; max-width:60ch; }
+
+  /* CONTACTO */
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+  @media (max-width:820px){ .contact-grid{ grid-template-columns:1fr; gap:40px; } }
+  .contact-intro h2{ font-size:clamp(1.8rem,3.4vw,2.4rem); margin-bottom:14px; }
+  .contact-channels{ margin-top:32px; display:flex; flex-direction:column; gap:14px; }
+  .channel{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    border:1px solid var(--border); border-radius:10px; padding:16px 18px;
+  }
+  .channel-label{ display:flex; align-items:center; gap:12px; font-weight:600; font-size:0.94rem; }
+  .channel-sub{ color:var(--gray-600); font-size:0.85rem; font-weight:400; }
+  .channel a{ font-size:0.85rem; font-weight:600; color:var(--accent); }
+  .channel a:hover{ text-decoration:underline; }
+
+  form{ display:flex; flex-direction:column; gap:16px; }
+  label{ font-size:0.85rem; font-weight:600; margin-bottom:6px; display:block; }
+  input, textarea{
+    width:100%; border:1px solid var(--border); border-radius:8px; padding:12px 14px;
+    font-family:'Inter', sans-serif; font-size:0.94rem; background:var(--paper);
+  }
+  input:focus, textarea:focus{ outline:2px solid var(--accent); outline-offset:1px; background:var(--white); }
+  textarea{ resize:vertical; min-height:110px; }
+  form .btn{ align-self:flex-start; margin-top:4px; }
+
+  /* FOOTER */
+  footer{ border-top:1px solid var(--border); padding:48px 0; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:24px; }
+  .footer-tagline{ color:var(--gray-600); font-size:0.9rem; margin-top:10px; max-width:32ch; }
+  .footer-links{ display:flex; gap:24px; font-size:0.88rem; }
+  .footer-links a:hover{ color:var(--accent); }
+  .footer-bottom{ margin-top:36px; padding-top:18px; border-top:1px solid var(--border); font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--gray-400); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo">RM</a>
+    <nav class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#metodo">Método RM</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a href="https://wa.me/5491141764320?text=Hola%20Roberto.%20Vi%20la%20p%C3%A1gina%20de%20RM%20y%20quisiera%20consultar%20por%20un%20proyecto." class="btn btn-primary" style="padding:10px 18px; font-size:0.85rem;">Solicitar una reunión</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Construí con claridad desde el primer día.</h1>
+    <p class="lede" style="margin-left:auto; margin-right:auto;">Organizamos proyectos de arquitectura mediante planificación, documentación técnica y dirección de obra, para reducir la incertidumbre antes de construir.</p>
+    <div class="hero-ctas">
+      <a href="#contacto" class="btn btn-primary">Solicitar una reunión</a>
+      <a href="#metodo" class="btn btn-secondary">Conocer el Método RM</a>
+    </div>
+
+    <div class="schema">
+      <video
+        class="hero-video"
+        autoplay muted loop playsinline
+        poster="assets/hero-poster.jpg">
+        <source src="assets/hero-planos.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="problema">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="idx">§ Sin organización</span>
+      <h2>Una obra desorganizada cuesta tiempo, dinero y tranquilidad.</h2>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15181a" stroke-width="1.6"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M15 4v5h5"/></svg>
+        <h3>Falta de planificación</h3>
+      </div>
+      <div class="problem-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15181a" stroke-width="1.6"><path d="M8 3v4M16 3v4M4 9h16M5 6h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z"/><path d="M9 14h2"/></svg>
+        <h3>Documentación incompleta</h3>
+      </div>
+      <div class="problem-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15181a" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <h3>Retrasos</h3>
+      </div>
+      <div class="problem-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15181a" stroke-width="1.6"><path d="M12 3v18M8 7.5c0-1.4 1.8-2.5 4-2.5s4 1.1 4 2.5-1.8 2.5-4 2.5-4 1.1-4 2.5 1.8 2.5 4 2.5 4-1.1 4-2.5"/></svg>
+        <h3>Sobrecostos</h3>
+      </div>
+      <div class="problem-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15181a" stroke-width="1.6"><path d="M4 4v6h6M20 20v-6h-6"/><path d="M20 10a8 8 0 0 0-14.6-4.6M4 14a8 8 0 0 0 14.6 4.6"/></svg>
+        <h3>Cambios permanentes</h3>
+      </div>
+      <div class="problem-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15181a" stroke-width="1.6"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="3"/><path d="M3 19c0-2.8 2.2-5 5-5s5 2.2 5 5M12 19c0-2.2 1.8-4 4-4s4 1.8 4 4"/></svg>
+        <h3>Mala coordinación</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="metodo">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="idx">§ Método RM</span>
+      <h2>Un método claro para cada proyecto.</h2>
+    </div>
+    <div class="method-list">
+      <div class="method-item"><span class="method-num mono">01 · Comprender</span><p>Entendemos tus objetivos.</p></div>
+      <div class="method-item"><span class="method-num mono">02 · Relevar</span><p>Analizamos toda la información.</p></div>
+      <div class="method-item"><span class="method-num mono">03 · Planificar</span><p>Organizamos el proyecto.</p></div>
+      <div class="method-item"><span class="method-num mono">04 · Documentar</span><p>Preparamos la documentación técnica.</p></div>
+      <div class="method-item"><span class="method-num mono">05 · Coordinar</span><p>Coordinamos cada etapa.</p></div>
+      <div class="method-item"><span class="method-num mono">06 · Ejecutar</span><p>Acompañamos la obra.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="idx">§ Áreas de trabajo</span>
+      <h2>Servicios</h2>
+    </div>
+    <div class="services-list">
+      <div class="service-row">
+        <span class="service-code mono">001</span>
+        <div><h3>Proyecto Arquitectónico</h3><p>Desarrollo integral de proyectos arquitectónicos desde el análisis inicial hasta la documentación correspondiente al alcance contratado.</p></div>
+      </div>
+      <div class="service-row">
+        <span class="service-code mono">002</span>
+        <div><h3>Dirección de Obra</h3><p>Seguimiento técnico y control de la ejecución de la obra.</p></div>
+      </div>
+      <div class="service-row">
+        <span class="service-code mono">003</span>
+        <div><h3>Documentación Técnica</h3><p>Elaboración y organización de planos, documentación y material técnico necesario para el desarrollo del proyecto.</p></div>
+      </div>
+      <div class="service-row">
+        <span class="service-code mono">004</span>
+        <div><h3>Gestión Municipal</h3><p>Preparación y gestión de documentación necesaria para trámites y presentaciones municipales.</p></div>
+      </div>
+      <div class="service-row">
+        <span class="service-code mono">005</span>
+        <div><h3>Cómputos y Presupuestos</h3><p>Análisis de cantidades, materiales y costos para mejorar la planificación económica del proyecto.</p></div>
+      </div>
+      <div class="service-row" style="border-bottom:none;">
+        <span class="service-code mono">006</span>
+        <div><h3>Consultoría Técnica</h3><p>Asesoramiento técnico para analizar problemas, alternativas y decisiones vinculadas con proyectos de arquitectura y construcción.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="por-que-rm">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="idx">§ Por qué RM</span>
+      <h2>Organización que se nota en cada etapa.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0e4a42" stroke-width="1.6"><path d="M12 3 3 7l9 4 9-4-9-4Z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg>
+        <h3>Método de trabajo propio</h3>
+        <p>Un proceso repetible para cada proyecto, no una improvisación caso por caso.</p>
+      </div>
+      <div class="why-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0e4a42" stroke-width="1.6"><path d="M4 6h16M4 12h10M4 18h13"/></svg>
+        <h3>Procesos claros</h3>
+        <p>Cada etapa tiene un responsable, un plazo y un resultado esperado.</p>
+      </div>
+      <div class="why-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0e4a42" stroke-width="1.6"><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M15 3v5h5M8 13h8M8 17h5"/></svg>
+        <h3>Documentación organizada</h3>
+        <p>Planos, presupuestos y trámites ordenados y disponibles cuando se necesitan.</p>
+      </div>
+      <div class="why-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0e4a42" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>
+        <h3>Comunicación permanente</h3>
+        <p>El cliente sabe en qué etapa está su proyecto en todo momento.</p>
+      </div>
+      <div class="why-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0e4a42" stroke-width="1.6"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg>
+        <h3>Tecnología aplicada</h3>
+        <p>Herramientas digitales para mejorar planificación, documentación y seguimiento.</p>
+      </div>
+      <div class="why-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0e4a42" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5" fill="#0e4a42"/></svg>
+        <h3>Control del proyecto</h3>
+        <p>Seguimiento activo de tiempos, costos y calidad durante toda la obra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="preguntas">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="idx">§ Preguntas frecuentes</span>
+      <h2>Antes de escribirnos.</h2>
+    </div>
+    <div class="faq-wrap">
+      <details open>
+        <summary>¿Puedo contratar solo un servicio?</summary>
+        <p>Sí. Cada servicio puede contratarse de forma independiente según las necesidades del proyecto.</p>
+      </details>
+      <details>
+        <summary>¿Realizan dirección de obra?</summary>
+        <p>Sí. También ofrecemos seguimiento y coordinación de obra.</p>
+      </details>
+      <details>
+        <summary>¿Trabajan con particulares y empresas?</summary>
+        <p>Sí. Trabajamos con particulares, empresas, estudios de arquitectura y constructoras.</p>
+      </details>
+      <details>
+        <summary>¿Cómo solicito un presupuesto?</summary>
+        <p>Primero coordinamos una reunión para conocer el proyecto. Luego analizamos la información y elaboramos una propuesta.</p>
+      </details>
+      <details>
+        <summary>¿Qué documentación necesito?</summary>
+        <p>Depende del proyecto. En la primera reunión indicamos la documentación necesaria.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap contact-grid">
+    <div class="contact-intro">
+      <span class="idx">§ Contacto</span>
+      <h2>Hablemos de tu proyecto.</h2>
+      <p class="lede">Contanos qué necesitás y coordinemos una reunión para analizar tu proyecto.</p>
+
+      <div class="contact-channels">
+        <div class="channel">
+          <div class="channel-label">
+            WhatsApp
+            <span class="channel-sub">— Escribinos directamente</span>
+          </div>
+          <a href="https://wa.me/5491141764320?text=Hola%20Roberto.%20Vi%20la%20p%C3%A1gina%20de%20RM%20y%20quisiera%20consultar%20por%20un%20proyecto.">Escribir →</a>
+        </div>
+        <div class="channel">
+          <div class="channel-label">LinkedIn</div>
+          <a href="https://www.linkedin.com/in/roberto-martinez-51828354/" target="_blank" rel="noopener">Ver perfil →</a>
+        </div>
+        <div class="channel">
+          <div class="channel-label">Instagram</div>
+          <a href="https://www.instagram.com/arqrover/" target="_blank" rel="noopener">@arqrover →</a>
+        </div>
+        <div class="channel">
+          <div class="channel-label">Correo electrónico</div>
+          <a href="mailto:rm.estudio.ba@gmail.com">Enviar mail →</a>
+        </div>
+      </div>
+    </div>
+
+    <form onsubmit="event.preventDefault(); window.location.href='mailto:rm.estudio.ba@gmail.com?subject=Consulta%20desde%20la%20web&body=' + encodeURIComponent('Nombre: ' + this.nombre.value + '\n\n' + this.mensaje.value);">
+      <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div>
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Solicitar una reunión</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <div>
+      <div class="logo">RM</div>
+      <p class="footer-tagline">Arquitectura organizada.<br>Procesos claros.<br>Obras bajo control.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/roberto-martinez-51828354/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/arqrover/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/5491141764320">WhatsApp</a>
+      <a href="mailto:rm.estudio.ba@gmail.com">Correo</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">RM — Organización y Gestión Integral de Proyectos de Arquitectura</div>
+</footer>
+
+</body>
+</html>
