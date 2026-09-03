@@ -178,8 +178,7 @@
     <div class="schema">
       <video
         class="hero-video"
-        autoplay muted loop playsinline
-        poster="assets/hero-poster.jpg">
+        autoplay muted loop playsinline>
         <source src="assets/hero-planos.mp4" type="video/mp4">
       </video>
     </div>
@@ -363,7 +362,7 @@
       </div>
     </div>
 
-    <form onsubmit="event.preventDefault(); window.location.href='mailto:rm.estudio.ba@gmail.com?subject=Consulta%20desde%20la%20web&body=' + encodeURIComponent('Nombre: ' + this.nombre.value + '\n\n' + this.mensaje.value);">
+    <form onsubmit="event.preventDefault(); window.location.href='mailto:rm.estudio.ba@gmail.com?subject=Consulta%20desde%20la%20web&body=' + encodeURIComponent('Nombre: ' + this.nombre.value + '\nCorreo: ' + this.email.value + '\n\nMensaje:\n' + this.mensaje.value);">
       <div>
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" name="nombre" required>
