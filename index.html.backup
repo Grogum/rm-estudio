@@ -3,46 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RM — Automatización y gestión técnica de proyectos | Buenos Aires</title>
-<meta name="description" content="Automatizamos el predimensionado, la documentación y la gestión de proyectos de arquitectura en Revit y Python. Menos errores, menos horas perdidas, obras bajo control en CABA y Buenos Aires.">
-<meta name="keywords" content="automatización Revit, predimensionado, documentación técnica, gestión de obra, CIRSOC, Buenos Aires, CABA, arquitectura, ingeniería, Python, BIM">
-<meta name="author" content="RM">
-<link rel="canonical" href="https://rmarquitectura.com.ar/">
-<meta name="theme-color" content="#0e4a42">
-<!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="RM — Automatización y gestión técnica">
-<meta property="og:title" content="RM — Automatización y gestión técnica de proyectos">
-<meta property="og:description" content="Automatizamos predimensionado, documentación y gestión de proyectos en Revit y Python. Menos horas perdidas, obras bajo control.">
-<meta property="og:url" content="https://rmarquitectura.com.ar/">
-<meta property="og:image" content="https://rmarquitectura.com.ar/assets/og-rm.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:locale" content="es_AR">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RM — Automatización y gestión técnica de proyectos">
-<meta name="twitter:description" content="Automatizamos predimensionado, documentación y gestión de proyectos en Revit y Python.">
-<meta name="twitter:image" content="https://rmarquitectura.com.ar/assets/og-rm.jpg">
-<!-- Favicon -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e4a42'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3ERM%3C/text%3E%3C/svg%3E">
+<title>RM — Organización, Gestión y Optimización Técnica de Proyectos</title>
+<meta name="description" content="RM optimiza y organiza proyectos de arquitectura e ingeniería mediante planificación técnica, documentación ejecutiva y control de procesos para reducir la incertidumbre antes y durante la ejecución.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<!-- Datos estructurados (Google) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "RM — Automatización y gestión técnica de proyectos",
-  "description": "Automatización del predimensionado, documentación y gestión de proyectos de arquitectura e ingeniería con Revit y Python.",
-  "areaServed": ["Buenos Aires", "CABA", "Argentina"],
-  "email": "rm.estudio.ba@gmail.com",
-  "url": "https://rmarquitectura.com.ar/",
-  "sameAs": ["https://www.instagram.com/arqrover/"],
-  "knowsAbout": ["automatización Revit", "predimensionado", "documentación técnica", "CIRSOC", "gestión de obra"]
-}
-</script>
 <style>
   :root{
     --white:#ffffff;
@@ -183,46 +148,6 @@
   textarea{ resize:vertical; min-height:110px; }
   form .btn{ align-self:flex-start; margin-top:4px; }
 
-  /* BADGE AUTOMATIZACION */
-  .hero-badge{
-    display:inline-flex; align-items:center; gap:8px; margin:0 auto 22px;
-    background:var(--accent-soft); color:var(--accent); border:1px solid #cde0da;
-    padding:6px 14px; border-radius:999px; font-size:0.8rem; font-weight:600;
-    font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;
-  }
-  .hero-badge .dot{ width:7px; height:7px; border-radius:50%; background:var(--accent); }
-
-  /* CASOS / ANTES-DESPUES */
-  .cases-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
-  @media (max-width:760px){ .cases-grid{ grid-template-columns:1fr; } }
-  .case-card{ border:1px solid var(--border); border-radius:14px; overflow:hidden; background:var(--white); }
-  .case-head{ padding:22px 24px 0; }
-  .case-head h3{ font-size:1.05rem; margin-bottom:6px; }
-  .case-head p{ color:var(--gray-600); font-size:0.9rem; }
-  .case-compare{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); margin-top:18px; }
-  .case-side{ padding:18px 20px 22px; background:var(--white); }
-  .case-side.before{ background:var(--paper); }
-  .case-tag{ font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.06em; text-transform:uppercase; }
-  .case-side.before .case-tag{ color:#b45309; }
-  .case-side.after .case-tag{ color:var(--accent); }
-  .case-metrics{ margin-top:10px; display:flex; flex-direction:column; gap:8px; }
-  .case-metric{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; font-size:0.88rem; }
-  .case-metric strong{ font-size:1.15rem; }
-  .case-side.before .case-metric strong{ color:#b45309; }
-  .case-side.after .case-metric strong{ color:var(--accent); }
-
-  /* WHATSAPP FLOTANTE */
-  .wa-float{
-    position:fixed; right:22px; bottom:22px; z-index:100;
-    display:flex; align-items:center; gap:10px;
-    background:#25D366; color:#fff; font-weight:600; font-size:0.92rem;
-    padding:14px 20px; border-radius:999px; box-shadow:0 8px 24px rgba(37,211,102,0.35);
-    transition:transform .15s ease, box-shadow .15s ease;
-  }
-  .wa-float:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(37,211,102,0.45); }
-  .wa-float svg{ width:22px; height:22px; }
-  @media (max-width:560px){ .wa-float span{ display:none; } .wa-float{ padding:15px; } }
-
   /* FOOTER */
   footer{ border-top:1px solid var(--border); padding:48px 0; }
   .footer-row{ display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:24px; }
@@ -232,15 +157,14 @@
   .footer-bottom{ margin-top:36px; padding-top:18px; border-top:1px solid var(--border); font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--gray-400); }
 </style>
 </head>
-<body id="top">
+<body>
 
 <header>
   <div class="wrap nav">
-    <a href="#top" class="logo" aria-label="RM — inicio">RM</a>
+    <a href="#" class="logo">RM</a>
     <div class="nav-right">
       <nav class="nav-links">
         <a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a>
-        <a href="#casos" data-es="Casos" data-en="Cases">Casos</a>
         <a href="#metodo" data-es="Método RM" data-en="RM Method">Método RM</a>
         <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
       </nav>
@@ -252,7 +176,6 @@
 
 <section class="hero">
   <div class="wrap">
-    <span class="hero-badge" data-es="Automatización de proyectos con Revit + Python" data-en="Project automation with Revit + Python"><span class="dot"></span>Automatización de proyectos con Revit + Python</span>
     <h1 data-es="Construí y optimizá con claridad desde el primer día." data-en="Build and optimize with clarity from day one.">Construí y optimizá con claridad desde el primer día.</h1>
     <p class="lede" style="margin-left:auto; margin-right:auto;" data-es="Organizamos y optimizamos proyectos de arquitectura, ingeniería y desarrollo espacial. Aplicamos planificación técnica, documentación ejecutiva y procesos digitales para reducir la incertidumbre y controlar costos antes y durante la ejecución." data-en="We organize and optimize architecture, engineering, and spatial development projects. We apply technical planning, executive documentation, and digital processes to reduce uncertainty and control costs before and during execution.">Organizamos y optimizamos proyectos de arquitectura, ingeniería y desarrollo espacial. Aplicamos planificación técnica, documentación ejecutiva y procesos digitales para reducir la incertidumbre y controlar costos antes y durante la ejecución.</p>
     <div class="hero-ctas">
@@ -263,8 +186,7 @@
     <div class="schema">
       <video
         class="hero-video"
-        autoplay muted loop playsinline
-        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 380'%3E%3Crect width='900' height='380' fill='%23fafaf8'/%3E%3Ctext x='450' y='200' font-family='monospace' font-size='20' fill='%239a9d9f' text-anchor='middle'%3ERM%3C/text%3E%3C/svg%3E">
+        autoplay muted loop playsinline>
         <source src="assets/hero-planos.mp4" type="video/mp4">
       </video>
     </div>
@@ -352,63 +274,7 @@
       </div>
       <div class="service-row" style="border-bottom:none;">
         <span class="service-code mono">006</span>
-        <div><h3 data-es="Automatización Técnica en Revit y Python" data-en="Technical Automation in Revit & Python">Automatización Técnica en Revit y Python</h3><p data-es="Desarrollamos herramientas a medida que automatizan el predimensionado estructural, la generación de memorias de cálculo y la documentación repetitiva dentro de Revit. Menos horas cargando datos, menos errores de copia, entregables firmables más rápido." data-en="We build custom tools that automate structural sizing, calculation report generation, and repetitive documentation inside Revit. Fewer hours entering data, fewer copy errors, signable deliverables faster.">Desarrollamos herramientas a medida que automatizan el predimensionado estructural, la generación de memorias de cálculo y la documentación repetitiva dentro de Revit. Menos horas cargando datos, menos errores de copia, entregables firmables más rápido.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="casos">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="idx" data-es="§ Casos" data-en="§ Case studies">§ Casos</span>
-      <h2 data-es="El antes y el después de automatizar." data-en="Before and after automation.">El antes y el después de automatizar.</h2>
-      <p class="lede" data-es="Ejemplos de procesos que dejaron de hacerse a mano." data-en="Examples of processes that stopped being done by hand.">Ejemplos de procesos que dejaron de hacerse a mano.</p>
-    </div>
-    <div class="cases-grid">
-      <div class="case-card">
-        <div class="case-head">
-          <h3 data-es="Predimensionado estructural en Revit" data-en="Structural sizing in Revit">Predimensionado estructural en Revit</h3>
-          <p data-es="Vigas, columnas, bases y muros portantes calculados automáticamente desde el modelo." data-en="Beams, columns, footings, and bearing walls calculated automatically from the model.">Vigas, columnas, bases y muros portantes calculados automáticamente desde el modelo.</p>
-        </div>
-        <div class="case-compare">
-          <div class="case-side before">
-            <span class="case-tag" data-es="Antes" data-en="Before">Antes</span>
-            <div class="case-metrics">
-              <div class="case-metric"><span data-es="Por proyecto" data-en="Per project">Por proyecto</span><strong>6 h</strong></div>
-              <div class="case-metric"><span data-es="Errores de carga" data-en="Data-entry errors">Errores de carga</span><strong data-es="Frecuentes" data-en="Frequent">Frecuentes</strong></div>
-            </div>
-          </div>
-          <div class="case-side after">
-            <span class="case-tag" data-es="Después" data-en="After">Después</span>
-            <div class="case-metrics">
-              <div class="case-metric"><span data-es="Por proyecto" data-en="Per project">Por proyecto</span><strong>20 min</strong></div>
-              <div class="case-metric"><span data-es="Errores de carga" data-en="Data-entry errors">Errores de carga</span><strong data-es="Ninguno" data-en="None">Ninguno</strong></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="case-card">
-        <div class="case-head">
-          <h3 data-es="Memorias de cálculo firmables" data-en="Signable calculation reports">Memorias de cálculo firmables</h3>
-          <p data-es="Generación automática de la memoria técnica del legajo desde los datos del modelo." data-en="Automatic generation of the technical report from model data.">Generación automática de la memoria técnica del legajo desde los datos del modelo.</p>
-        </div>
-        <div class="case-compare">
-          <div class="case-side before">
-            <span class="case-tag" data-es="Antes" data-en="Before">Antes</span>
-            <div class="case-metrics">
-              <div class="case-metric"><span data-es="Por legajo" data-en="Per set">Por legajo</span><strong>3 h</strong></div>
-              <div class="case-metric"><span data-es="Formato" data-en="Format">Formato</span><strong data-es="Manual" data-en="Manual">Manual</strong></div>
-            </div>
-          </div>
-          <div class="case-side after">
-            <span class="case-tag" data-es="Después" data-en="After">Después</span>
-            <div class="case-metrics">
-              <div class="case-metric"><span data-es="Por legajo" data-en="Per set">Por legajo</span><strong>5 min</strong></div>
-              <div class="case-metric"><span data-es="Formato" data-en="Format">Formato</span><strong data-es="Estandarizado" data-en="Standardized">Estandarizado</strong></div>
-            </div>
-          </div>
-        </div>
+        <div><h3 data-es="Consultoría en Gestión y Automatización Técnica" data-en="Technical Management & Automation Consulting">Consultoría en Gestión y Automatización Técnica</h3><p data-es="Asesoramiento especializado para empresas y profesionales en la optimización de procesos, resolución de problemas complejos e integración de herramientas digitales." data-en="Specialized consulting for companies and professionals in process optimization, solving complex problems, and integrating digital tools.">Asesoramiento especializado para empresas y profesionales en la optimización de procesos, resolución de problemas complejos e integración de herramientas digitales.</p></div>
       </div>
     </div>
   </div>
@@ -497,35 +363,28 @@
         <div class="channel">
           <div class="channel-label">
             WhatsApp
-            <span class="channel-sub" data-es="— La vía más rápida" data-en="— The fastest way">— La vía más rápida</span>
+            <span class="channel-sub" data-es="— Escribinos directamente" data-en="— Message us directly">— Escribinos directamente</span>
           </div>
-          <a href="https://wa.me/5491141764320?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20RM%20y%20quisiera%20consultar%20por%20un%20proyecto." data-es="Escribir →" data-en="Message →">Escribir →</a>
-        </div>
-        <div class="channel">
-          <div class="channel-label">
-            <span data-es="Correo" data-en="Email">Correo</span>
-            <span class="channel-sub" data-es="— Para propuestas formales" data-en="— For formal proposals">— Para propuestas formales</span>
-          </div>
-          <a href="mailto:rm.estudio.ba@gmail.com" data-es="Enviar →" data-en="Send →">Enviar →</a>
-        </div>
-        <div class="channel">
-          <div class="channel-label">
-            Instagram
-            <span class="channel-sub" data-es="— Obras y novedades" data-en="— Projects and news">— Obras y novedades</span>
-          </div>
-          <a href="https://www.instagram.com/arqrover/" target="_blank" rel="noopener" data-es="Ver →" data-en="View →">Ver →</a>
+          <a href="https://wa.me/5491141764320?text=Hola%20Roberto.%20Vi%20la%20p%C3%A1gina%20de%20RM%20y%20quisiera%20consultar%20por%20un%20proyecto." data-es="Escribir →" data-en="Message →">Escribir →</a>
         </div>
       </div>
     </div>
 
-    <div class="contact-intro">
-      <span class="idx" data-es="§ Consulta rápida" data-en="§ Quick inquiry">§ Consulta rápida</span>
-      <h2 style="font-size:1.5rem;" data-es="Escribinos por WhatsApp" data-en="Message us on WhatsApp">Escribinos por WhatsApp</h2>
-      <p class="lede" data-es="Un mensaje es suficiente. Te respondemos con los próximos pasos y coordinamos la reunión." data-en="A single message is enough. We reply with next steps and arrange the meeting.">Un mensaje es suficiente. Te respondemos con los próximos pasos y coordinamos la reunión.</p>
-      <p style="margin-top:28px;">
-        <a href="https://wa.me/5491141764320?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20RM.%20Quisiera%20consultar%20por%3A%20" class="btn btn-primary" style="padding:16px 28px; font-size:1rem;" data-es="Abrir WhatsApp" data-en="Open WhatsApp">Abrir WhatsApp</a>
-      </p>
-    </div>
+    <form onsubmit="event.preventDefault(); window.location.href='mailto:rm.estudio.ba@gmail.com?subject=Consulta%20desde%20la%20web&body=' + encodeURIComponent('Nombre: ' + this.nombre.value + '\nCorreo: ' + this.email.value + '\n\nMensaje:\n' + this.mensaje.value);">
+      <div>
+        <label for="nombre" data-es="Nombre" data-en="Name">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div>
+        <label for="email" data-es="Correo electrónico" data-en="Email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="mensaje" data-es="Mensaje" data-en="Message">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" data-es="Solicitar una reunión" data-en="Request a meeting">Solicitar una reunión</button>
+    </form>
   </div>
 </section>
 
@@ -541,48 +400,29 @@
       <a href="mailto:rm.estudio.ba@gmail.com" data-es="Correo" data-en="Email">Correo</a>
     </div>
   </div>
-  <div class="wrap footer-bottom" data-es="RM — Automatización y gestión técnica de proyectos" data-en="RM — Technical automation and project management">RM — Automatización y gestión técnica de proyectos</div>
+  <div class="wrap footer-bottom" data-es="RM — Organización, Gestión y Optimización Técnica de Proyectos" data-en="RM — Comprehensive Technical Organization, Management and Optimization">RM — Organización, Gestión y Optimización Técnica de Proyectos</div>
 </footer>
 
-<a href="https://wa.me/5491141764320?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20RM.%20Quisiera%20consultar%20por%3A%20" class="wa-float" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .9.9-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
-  <span data-es="Escribinos" data-en="Message us">Escribinos</span>
-</a>
-
 <script>
-  let currentLang = localStorage.getItem('rm-lang') || 'es';
-
-  function applyLanguage() {
-    document.getElementById('langToggle').innerText = currentLang === 'es' ? 'EN' : 'ES';
-    if(currentLang !== 'es') document.getElementById('langToggle').innerText = 'ES';
-    document.documentElement.lang = currentLang;
-    document.querySelectorAll('[data-es][data-en]').forEach(el => {
-      const val = el.getAttribute('data-' + currentLang);
-      if(val === null) return;
-      // Elementos con <br> en el texto: reemplazar el contenido completo una sola vez
-      if(val.includes('<br>')){
-        el.innerHTML = val;
-        return;
-      }
-      // Elementos con hijos (iconos): solo reemplazar nodos de texto hoja
-      if(el.children.length > 0){
-        Array.from(el.childNodes).forEach(n => {
-          if(n.nodeType === 3 && n.textContent.trim() !== '') n.textContent = val;
-        });
-        return;
-      }
-      // Elementos simples
-      el.textContent = val;
-    });
-  }
-
+  let currentLang = 'es';
+  
   function toggleLanguage() {
     currentLang = currentLang === 'es' ? 'en' : 'es';
-    localStorage.setItem('rm-lang', currentLang);
-    applyLanguage();
+    document.getElementById('langToggle').innerText = currentLang === 'es' ? 'EN' : 'ES';
+    document.documentElement.lang = currentLang;
+    
+    // Buscar todos los elementos que tienen los atributos de datos de idioma
+    const elements = document.querySelectorAll('[data-es][data-en]');
+    
+    elements.forEach(el => {
+      // Si el elemento es un párrafo con saltos de línea (como el footer-tagline)
+      if(el.tagName === 'P' && el.innerHTML.includes('<br>')) {
+        el.innerHTML = el.getAttribute(`data-${currentLang}`);
+      } else {
+        el.innerText = el.getAttribute(`data-${currentLang}`);
+      }
+    });
   }
-
-  applyLanguage();
 </script>
 </body>
 </html>
